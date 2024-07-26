@@ -34,10 +34,11 @@ iwsIncludeMultipleExact.b=false
 iwsBlockMultipleExact.b=false
 inlineCdata.b=false
 skipNoMrkSegSource.b=false
-useCodeFinder.b=false
+useCodeFinder.b=true
 subAsTextUnit.b=false
-codeFinderRules.count.i=1
-codeFinderRules.rule0=</?([A-Z0-9a-z]*)\b[^>]*>
+codeFinderRules.count.i=2
+codeFinderRules.rule0=</?img([A-Z0-9a-z]*)\b[^>]*>
+codeFinderRules.rule1=^\[[Tt]extbox[\d\s]*\]$
 codeFinderRules.sample=&name; <tag></at><tag/> <tag attr='val'> </tag="val">
 codeFinderRules.useAllRulesWhenTesting.b=true
 cdataSubfilter=
