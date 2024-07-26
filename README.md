@@ -110,19 +110,19 @@ In FT, the input files supplied by the content provider (even before the transla
 ```
 That means 6 sentences in the source text:
 
-1. Sam felt nervous. 
-2. He was happy that the children liked his book. 
-3. But mice are very shy! 
-4. They don\u2019t like to be around people. 
-5. Plus, Sam could not understand why people thought that making up stories was so hard. 
-6. If only they would try, they might find out that writing is fun.
+    - Sam felt nervous. 
+    - He was happy that the children liked his book. 
+    - But mice are very shy! 
+    - They don\u2019t like to be around people. 
+    - Plus, Sam could not understand why people thought that making up stories was so hard. 
+    - If only they would try, they might find out that writing is fun.
 
 translated with 4 sentences: 
 
-1. Sam estaba muy nervioso. 
-2. Estaba feliz de que a los niños les gustase su libro, ¡pero los ratones son muy vergonzosos! 
-3. No les gusta estar junto con otras personas, además Sam no podía comprender porque crear historias era tan complicado para la gente. 
-4. Si lo intentasen se darían cuenta de cuan divertido es escribir.
+    - Sam estaba muy nervioso. 
+    - Estaba feliz de que a los niños les gustase su libro, ¡pero los ratones son muy vergonzosos! 
+    - No les gusta estar junto con otras personas, además Sam no podía comprender porque crear historias era tan complicado para la gente. 
+    - Si lo intentasen se darían cuenta de cuan divertido es escribir.
 
 That has a couple of practical implications: 
 
