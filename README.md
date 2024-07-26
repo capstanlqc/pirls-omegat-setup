@@ -96,6 +96,8 @@ Files must be identified using BCP47 language tags. The list of language tags co
 
 The full list of language tags for reference can be consulted here: https://capps.capstan.be/langtags.php
 
+URLs to download team projects in all languages are available [here](docs/repos.md).
+
 ### Segmentation
 
 In FT, the input files supplied by the content provider (even before the translation task) have a bilingual strucuture (i.e. they contain source and target nodes) and may be in fact partially translated (or not). For example: 
