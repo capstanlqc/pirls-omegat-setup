@@ -12,15 +12,15 @@ do
 
     omtprj_dpath=$app_root/repos/$omtprj_dname
 
-    # $jrebin_fpath -jar $omegat_jpath team init en gl $omtprj_dpath --mode=console-translate --config-dir=$config_dpath  --script=$script_fpath
+    [ -d $omtprj_dpath ] || continue
+
+    # if we don't trust users to have committed target files, then 
+    # create offline version of repos/$omtprj_dpath: offline/$omtprj_dpath
+    # $jrebin_fpath -jar $omegat_jpath offline/$omtprj_dpath --mode=console-translate --config-dir=$config_dpath  --script=$script_fpath
+
+    # if we trust users, then just pull their target files
 
     component="assessment"
-    bash $app_root/merge.sh \
-    -file $omtprj_dpath/orig/$fname \
-    -xliff $omtprj_dpath/target/$fname.xlf \
-    -target $omtprj_dpath/done/$fname \
-    -unapproved
-
     for fpath in $(find $source_per_lang/AM/$target_lang -name "*.json");
     do
         fname=$(basename $fpath)
@@ -30,9 +30,18 @@ do
         -unapproved
     done
 
+    component="questionnaire"
+    for fpath in $(find $source_per_lang/SE/$target_lang -name "*.json");
+    do
+        fname=$(basename $fpath)
+        bash $open_xliff/merge.sh \
+        -xliff $omtprj_dpath/target/$component/$fname.xlf \
+        -target $final_dir/SE/$target_lang/$fname \
+        -unapproved
+    done
+
     # git add . 
     # git commit -m "Initial commit: created omegat project"
     # git push --set-upstream origin master
-
 done
 
