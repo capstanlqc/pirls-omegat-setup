@@ -33,19 +33,24 @@ do
     for fpath in $(find $source_per_lang/AM/$target_lang -name "*.json");
     do
         fname=$(basename $fpath)
+        echo $fname
         bash $open_xliff/convert.sh \
         -file $fpath \
         -srcLang $source_lang \
         -tgtLang $target_lang \
         -type JSON \
         -embed \
-        # -srx $app_root/config/am_json.srx \
         -config $app_root/config/am_config.json \
         -xliff $omtprj_dpath/source/$component/$fname.xlf
+
+        # -srx $app_root/config/am_json.srx \
 
         echo "----"
     done
 
+    cd $omtprj_dpath
+    git pull
+    echo "PWD: $(pwd)"
     git add . 
     git commit -m "Initial commit: added/updated config and source files"
     git push

@@ -18,6 +18,9 @@ Changed segmentation: <sentence_seg>false</sentence_seg>
 
 ## Dislaimers
 
+No segmentation is applied when the node has a translation and the number of sentences doesn't match. Example:
+
+
 The key in JSON files must be edited to remove backslashes.
 
 ("key"\s*:\s*"[^\n]+)\\\\
@@ -55,6 +58,10 @@ veryfire: look for consistency of live segments:
 - apply segmentation only when source and target are identical (it can be assumed that the unit is not translated)
 or check why it segments 
 
+- collapsed tags 
+
+
+
 --
 
 style recommendations for RM
@@ -63,3 +70,10 @@ style recommendations for RM
 
 tips and tricks:
 navigate history: Ctrl+Shift+N
+
+
+--
+
+
+add documentation to TMX Editor 
+how to see context properties in alternative translations
