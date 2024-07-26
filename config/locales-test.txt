@@ -1,1 +1,3 @@
 es-ES
+ar-AE
+de-DE
