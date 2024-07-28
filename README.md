@@ -33,7 +33,7 @@ In any case, the actions after the verification is finalized are:
 - upload (verified) target files to the platform (TBC who does that in this case)
 
 
-## Getting started
+## Toolkit
 
 You will need: 
 
