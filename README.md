@@ -163,5 +163,6 @@ In questionnaires, OmegaT will display the text block's `item_label` as identifi
 ## To do / Pending
 
 1. Investigate why the project may reload twice even though there are no changes in source files.
-2. Discuss QA checks in VeryFire
-3. Discuss T&A notes
+2. Fix issue with collapsed adjacent inline codes
+3. Discuss QA checks in VeryFire
+4. Discuss T&A notes
