@@ -25,7 +25,7 @@ do
     mkdir -p $omtprj_dpath/tm/auto
     mkdir -p $omtprj_dpath/tm/enforce
     # any TMs (including T&A Notes), glossaries, etc.
-    find $app_root/assets/dnt/ -name markup_${target_lang}.tmx -exec cp {} $omtprj_dpath/tm/enforce
+    find $app_root/assets/dnt/ -name markup_${target_lang}.tmx -exec cp {} $omtprj_dpath/tm/enforce \;
 
     # optional step: insert znwj after trailing and before initial tags (both in source and target)
     # that is: replace 
@@ -38,7 +38,7 @@ do
     component="assessment"
     mkdir -p $omtprj_dpath/source/$component
     
-    for fpath in $(find $source_per_lang/AM/$target_lang -name "*.json");
+    for fpath in $(find $source_per_lang/assessment/$target_lang -name "*.json");
     do
         fname=$(basename $fpath)
         echo $fname
@@ -48,14 +48,14 @@ do
         -tgtLang $target_lang \
         -type JSON \
         -embed \
-        -config $app_root/config/am_config.json \
+        -config $app_root/config/${component}_config.json \
         -xliff $omtprj_dpath/source/$component/$fname.xlf
     done
 
     component="questionnaire"
     mkdir -p $omtprj_dpath/source/$component
 
-    for fpath in $(find $source_per_lang/SE/$target_lang -name "*.json");
+    for fpath in $(find $source_per_lang/questionnaire/$target_lang -name "*.json");
     do
         fname=$(basename $fpath)
         echo $fname
@@ -65,7 +65,7 @@ do
         -tgtLang $target_lang \
         -type JSON \
         -embed \
-        -config $app_root/config/se_config.json \
+        -config $app_root/config/${component}_config.json \
         -xliff $omtprj_dpath/source/$component/$fname.xlf
     done
 
