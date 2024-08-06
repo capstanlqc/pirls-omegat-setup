@@ -6,8 +6,8 @@ set -a && source $app_root/code/.env && set +a
 locales="$app_root/config/locales-test.txt"
 [ -d $common_dir ] || gh repo clone capstanlqc-pirls/common $common_dir
 [ -d $final_dir ] || gh repo clone capstanlqc-pirls/final $final_dir
-[ -d $common_dir ] && cd $common_dir && git pull && cd -
-[ -d $final_dir ] && cd $final_dir && git pull && cd -
+[ -d $common_dir ] && cd $common_dir && git pull && cd - >/dev/null 2>&1
+[ -d $final_dir ] && cd $final_dir && git pull && cd - >/dev/null 2>&1
 
 for target_lang in `cat $locales`;
 do  
@@ -38,7 +38,7 @@ do
     component="assessment"
     mkdir -p $omtprj_dpath/source/$component
     
-    for fpath in $(find $source_per_lang/assessment/$target_lang -name "*.json");
+    for fpath in $(find $source_per_lang/$component/$target_lang -name "*.json");
     do
         fname=$(basename $fpath)
         echo $fname
@@ -55,7 +55,7 @@ do
     component="questionnaire"
     mkdir -p $omtprj_dpath/source/$component
 
-    for fpath in $(find $source_per_lang/questionnaire/$target_lang -name "*.json");
+    for fpath in $(find $source_per_lang/$component/$target_lang -name "*.json");
     do
         fname=$(basename $fpath)
         echo $fname
@@ -71,6 +71,7 @@ do
 
     cd $omtprj_dpath
     git pull
+    git checkout master
     git add . 
     git commit -m "Initial commit: added/updated config and source files"
     git push
