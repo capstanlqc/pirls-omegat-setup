@@ -19,7 +19,9 @@
       "instrument",
       "isStripHTML"
   ],
+  "rawSegmentation": true,
   "parseEntities": true,
+  "mergeTags": false,
   "trimTags": true,
   "exportHTML": true
 }
