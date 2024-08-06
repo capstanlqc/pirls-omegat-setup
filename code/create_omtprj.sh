@@ -26,6 +26,9 @@ do
     cd $omtprj_dpath
     $jrebin_fpath -jar $omegat_jpath team init $source_lang $target_lang
 
+    # add "*.xlf text" to .gitattributes
+    echo "*.xlf text" >> .gitattributes
+
     # push the thing
     git add . 
     git commit -m "Initial commit: created omegat project"
