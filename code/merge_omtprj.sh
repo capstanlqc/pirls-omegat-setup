@@ -10,6 +10,7 @@ do
     omtprj_dname="${omtprj_dname_template/LOCALE/"$target_lang"}"
     [ -d $app_root/repos/$omtprj_dname ] || continue
 
+    # get project path
     omtprj_dpath=$app_root/repos/$omtprj_dname
 
     [ -d $omtprj_dpath ] || continue
@@ -20,23 +21,29 @@ do
 
     # if we trust users, then just pull their target files
 
+    # get target files and come back safely
+    cd $omtprj_dpath
+    git pull
+    cd $app_root
+
     component="assessment"
-    for fpath in $(find $source_per_lang/AM/$target_lang -name "*.json");
+    for fpath in $(find $source_per_lang/$component/$target_lang -name "*.json");
     do
         fname=$(basename $fpath)
         bash $open_xliff/merge.sh \
         -xliff $omtprj_dpath/target/$component/$fname.xlf \
-        -target $final_dir/AM/$target_lang/$fname \
+        -target $final_dir/$component/$target_lang/$fname \
         -unapproved
     done
 
     component="questionnaire"
-    for fpath in $(find $source_per_lang/SE/$target_lang -name "*.json");
+    for fpath in $(find $source_per_lang/$component/$target_lang -name "*.json");
     do
         fname=$(basename $fpath)
+        echo "bash $open_xliff/merge.sh -xliff $omtprj_dpath/target/$component/$fname.xlf -target $final_dir/$component/$target_lang/$fname -unapproved"
         bash $open_xliff/merge.sh \
         -xliff $omtprj_dpath/target/$component/$fname.xlf \
-        -target $final_dir/SE/$target_lang/$fname \
+        -target $final_dir/$component/$target_lang/$fname \
         -unapproved
     done
 
@@ -45,3 +52,5 @@ do
     # git push --set-upstream origin master
 done
 
+# todo:
+# create target file's parent folder path chain
