@@ -198,3 +198,5 @@ In questionnaires, OmegaT will display the text block's `item_label` as identifi
     - config option `rawSegmentation` (expected in v. ^3.21) to split betweeen `</p><p>` and the like
 
 6. Update setup script to fetch XLIFF files directly (without conversion) if no JSON is available
+7. Put the convert block in a function that is called once for each component (once for assessments, once for questionnaires)
+8. Create chain of ancestor paths where files are to be written
